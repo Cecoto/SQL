@@ -1,0 +1,29 @@
+CREATE TABLE [Towns](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(40) NOT NULL,
+)
+CREATE TABLE[Addresses](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[AddressText] NVARCHAR(50) NOT NULL,
+	[TownId] INT NOT NULL
+)
+CREATE TABLE[Departments](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(40)
+)
+CREATE TABLE[Employees](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[FirstName] NVARCHAR(30) NOT NULL,
+	[MiddleName]NVARCHAR(30) NOT NULL,
+	[LastName] NVARCHAR(30) NOT NULL,
+	[JobTitle] NVARCHAR(20),
+	[DepartmentId] INT NOT NULL,
+	[HireDate] DATE NOT NULL,
+	[Salary] INT,
+	[AdressId] INT NOT NULL
+	)
+	ALTER TABLE [Adresses]
+ADD CONSTRAINT FK_ActiveDirectories_UserID FOREIGN KEY (UserID)
+    REFERENCES ActiveDirectories(id);
+	ALTER TABLE[Adresses]
+	ALTER COLUMN [TownId] INT FOREIGN KEY REFERENCES [Towns]([Id])NOT NULL
